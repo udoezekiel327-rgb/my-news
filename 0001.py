@@ -158,13 +158,5 @@ def run_rss_scraper_cycle():
 
 if __name__ == "__main__":
     print("🚀 Real-Time Live Scraper Engine Engaged Successfully.")
-    print("-> The application is now scanning global networks 24/7 in background loop...")
-    print("-> Press 'Ctrl + C' inside this window to close down the live wire feed safely.")
-    print("-" * 75)
-    
-    # Infinite background loop implementation
-    while True:
-        run_rss_scraper_cycle()
-        
-        # Wait 90 seconds before reaching out to live networks again to prevent bandwidth limits
-        time.sleep(90)
+    run_rss_scraper_cycle()
+    print("✅ Run complete.")
