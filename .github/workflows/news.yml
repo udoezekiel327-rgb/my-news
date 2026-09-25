@@ -1,35 +1,31 @@
-name: my news
+name: Run Bot Script
 
 on:
   push:
     branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
   schedule:
-    # Runs automatically every 15 minutes
-    - cron: '*/15 * * * *'
-  workflow_dispatch:
-
-permissions:
-  contents: read
+    - cron: '0 * * * *' # Runs every hour
 
 jobs:
-  run-script:
+  build:
     runs-on: ubuntu-latest
+
     steps:
-    - name: Check out repository code
-      uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-    - name: Set up Python 3.11
-      uses: actions/setup-python@v5
-      with:
-        python-version: "3.11"
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
 
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
-    - name: Run script bot4.py
-      run: |
-        python bot4.py
+      - name: Run script
+        env:
+          BOT_SECRET: ${{ secrets.BOT_SECRET }}
+          CHAT_ID: ${{ secrets.CHAT_ID }}
+        run: python bot4.py
