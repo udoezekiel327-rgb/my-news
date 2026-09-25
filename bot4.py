@@ -29,10 +29,8 @@ FINANCIAL_LEXICON = {
 sia.lexicon.update(FINANCIAL_LEXICON)
 
 # --- TELEGRAM CONFIGURATION ---
-TOKEN_NUMBER = "8842733470"
-TOKEN_SECRET = "AAGBjUfgTH9d0dCXdfBZSwvr0I5FPoNBW28"
-BOT_TOKEN = f"{TOKEN_NUMBER}:{TOKEN_SECRET}"
-CHAT_ID = "6951496380"
+BOT_TOKEN = os.environ.get("BOT_SECRET", "")
+CHAT_ID = os.environ.get("CHAT_ID", "")
 BASE_TELEGRAM_URL = f"https://api.telegram.org/bot{BOT_TOKEN}"
 
 # Optional API key for Economic Calendar Pre-Announcements (Free key available at financialmodelingprep.com)
