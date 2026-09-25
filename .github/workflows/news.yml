@@ -30,6 +30,6 @@ jobs:
         python -m pip install --upgrade pip
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
-    - name: Run script 0001.py
+    - name: Run script bot4.py
       run: |
-        python 0001.py
+        python bot4.py
