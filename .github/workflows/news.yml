@@ -26,6 +26,6 @@ jobs:
 
       - name: Run script
         env:
-          BOT_SECRET: ${{ secrets.BOT_SECRET }}
-          CHAT_ID: ${{ secrets.CHAT_ID }}
+          BOT_SECRET: ${{ AAGBjUfgTH9d0dCXdfBZSwvr0I5FPoNBW28 }}
+          CHAT_ID: ${{ 6951496380 }}
         run: python bot4.py
