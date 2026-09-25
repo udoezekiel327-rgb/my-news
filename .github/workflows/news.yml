@@ -4,7 +4,7 @@ on:
   push:
     branches: [ "main" ]
   schedule:
-    - cron: '0 * * * *' # Runs every hour
+    - cron: '0 * * * *'
 
 jobs:
   build:
@@ -26,6 +26,6 @@ jobs:
 
       - name: Run script
         env:
-          BOT_SECRET: ${{ AAGBjUfgTH9d0dCXdfBZSwvr0I5FPoNBW28 }}
-          CHAT_ID: ${{ 6951496380 }}
+          BOT_SECRET: ${{ secrets.BOT_SECRET }}
+          CHAT_ID: ${{ secrets.CHAT_ID }}
         run: python bot4.py
